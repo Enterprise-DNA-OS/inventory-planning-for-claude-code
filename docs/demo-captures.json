@@ -1,0 +1,24 @@
+{
+  "captured": "2026-10-10T02:40:36.404Z",
+  "data": "Fictional seeded demo",
+  "screens": [
+    {
+      "title": "Stock running short",
+      "ask": "Which items will run out before their normal delivery lead time?",
+      "command": "npm run planning -- shortages",
+      "output": "  sku      location  readiness  days_cover  lead_days  available  inbound\n  -------  --------  ---------  ----------  ---------  ---------  -------\n  GLV-100  Auckland  ready      8.0         20         40         20"
+    },
+    {
+      "title": "Excess stock",
+      "ask": "Where do we have more stock than the current plan needs?",
+      "command": "npm run planning -- excess",
+      "output": "  sku      location      currency  excess_units  excess_cost\n  -------  ------------  --------  ------------  -----------\n  GLV-200  Auckland      NZD       574           20090.00   \n  GLV-100  Christchurch  NZD       300           6000.00"
+    },
+    {
+      "title": "Late supplier orders",
+      "ask": "Which purchase orders are late, and how much is still outstanding?",
+      "command": "npm run planning -- late-orders",
+      "output": "  reference   sku      location  outstanding  due         days_late\n  ----------  -------  --------  -----------  ----------  ---------\n  PO-DEMO-01  GLV-100  Auckland  20           2026-10-07  3"
+    }
+  ]
+}

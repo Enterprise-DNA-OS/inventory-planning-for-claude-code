@@ -1,13 +1,39 @@
 [
   {
     "name": "week",
-    "title": "This week",
-    "subtitle": "Inventory Planning for Claude Code: what needs attention, rendered by npm run view",
+    "title": "Weekly replenishment review",
     "sections": [
       {
+        "title": "Proposed purchases and blocked items",
+        "sql": "select sku,location,currency,readiness,buy_units,buy_cost from v_plan where buy_units>0 or readiness<>'ready' order by sku,location"
+      },
+      {
         "title": "Needs attention",
-        "note": "TODO(author): point this at the industry's attention view (overdue, stuck, quiet).",
-        "sql": "select 'replace me' as item, 'TODO(author)' as why"
+        "sql": "select * from v_attention order by issue,sku"
+      }
+    ]
+  },
+  {
+    "name": "forecast",
+    "title": "Demand and cover",
+    "sections": [
+      {
+        "title": "Baseline forecast",
+        "sql": "select sku,location,readiness,daily_units,forecast_basis from v_demand order by sku,location"
+      },
+      {
+        "title": "Stock cover",
+        "sql": "select sku,location,days_cover,excess_units from v_plan order by sku,location"
+      }
+    ]
+  },
+  {
+    "name": "controls",
+    "title": "Record controls",
+    "sections": [
+      {
+        "title": "Missing evidence",
+        "sql": "select * from v_compliance order by rule,sku"
       }
     ]
   }

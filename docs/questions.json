@@ -1,0 +1,42 @@
+[
+  {
+    "question": "Which products need buying after packs and minimum quantities are applied?",
+    "command": "npm run planning -- buy-plan"
+  },
+  {
+    "question": "Which stock will run out before normal lead time?",
+    "command": "npm run planning -- shortages"
+  },
+  {
+    "question": "Where is excess stock tied up, separately for each currency?",
+    "command": "npm run planning -- excess"
+  },
+  {
+    "question": "Which suggestions are blocked by stale or incomplete records?",
+    "command": "npm run planning -- attention"
+  },
+  {
+    "question": "Which supplier orders are overdue and how much is still outstanding?",
+    "command": "npm run planning -- late-orders"
+  },
+  {
+    "question": "How much are we proposing to buy from each supplier?",
+    "command": "npm run planning -- supplier-review"
+  },
+  {
+    "question": "Which forecasts use an override and when does it expire?",
+    "command": "npm run planning -- forecast"
+  },
+  {
+    "question": "How far was the prior demand average from the latest month?",
+    "command": "npm run planning -- backtest"
+  },
+  {
+    "question": "What changes if demand doubles and lead time increases?",
+    "command": "npm run planning -- scenario --demand-percent=100 --extra-lead=7"
+  },
+  {
+    "question": "Who changed our planning records and what was recorded before?",
+    "command": "npm run planning -- activity"
+  }
+]

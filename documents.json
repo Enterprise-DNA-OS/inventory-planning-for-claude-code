@@ -1,11 +1,38 @@
 [
   {
-    "name": "example",
-    "title": "TODO(author): the first document this industry must produce",
-    "for_each": "select gen_random_uuid() as id, 'Example' as name",
+    "name": "purchase-request",
+    "title": "DRAFT purchase request",
+    "for_each": "select id,sku||' at '||location as name from v_plan where buy_units>0",
     "file": "name",
     "sections": [
-      { "title": "Details", "sql": "select 'replace me' as item, $1::text as record_id" }
+      {
+        "title": "Proposed order, approval required",
+        "sql": "select sku,location,supplier,currency,buy_units,buy_cost,forecast_basis from v_plan where id=$1"
+      },
+      {
+        "title": "Open supply to confirm",
+        "sql": "select reference,units,received,due,evidence from orders where position_id=$1 and status='open'"
+      }
+    ]
+  },
+  {
+    "name": "stock-review",
+    "title": "Stock review record",
+    "for_each": "select id,sku||' at '||location name from positions where active",
+    "file": "name",
+    "sections": [
+      {
+        "title": "Stock and policy",
+        "sql": "select sku,location,on_hand,allocated,unit_cost,currency,stock_asof,lead_days,review_days,safety_days,owner from positions where id=$1"
+      },
+      {
+        "title": "Review notes",
+        "sql": "select note,actor,due,resolved from reviews where position_id=$1 order by due"
+      },
+      {
+        "title": "Record checks",
+        "sql": "select rule,finding from v_compliance where id=$1"
+      }
     ]
   }
 ]
