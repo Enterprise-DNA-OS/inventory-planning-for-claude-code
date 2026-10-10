@@ -6,7 +6,7 @@ See what to buy, what will run short and which supplier needs a follow-up. Stock
 |---|---|---|
 | Free, MIT. Install and run the demo. | Your planning rules, Netstock exports, reports and connections. | Installed and operated through Omni by Enterprise DNA. One setup fee, then a retainer. |
 
-[Get your version built](https://enterprisedna.co/omni/book/?offer=replace-software&utm_source=github&utm_medium=readme&utm_campaign=netstock) · [Instead of Netstock](https://enterprisedna.co/omni/instead-of/netstock)
+[Get your version built](https://enterprisedna.co/omni/book/?offer=replace-software&utm_source=github&utm_medium=readme&utm_campaign=netstock) · [Instead of Netstock](https://enterprisedna.co/omni/instead-of/netstock?utm_source=github&utm_medium=readme&utm_campaign=netstock)
 
 ## Quick start
 
